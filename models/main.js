@@ -167,5 +167,5 @@ const Main = new Schema({
         }
     }],
 }
-}, { collection: 'new_data' });
-module.exports = mongoose.model("new_data", Main);
+}, { collection: 'new_data_new' });
+module.exports = mongoose.model("new_data_new", Main);
