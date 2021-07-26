@@ -1,0 +1,41 @@
+
+.testimonials {
+    background: url('../Pics/testimonials-bg.jpg') no-repeat;
+    height: 300px;
+    width: 100%;
+    -webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+   
+   
+}
+ 
+.testimonials::before{
+    
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 150;
+    bottom: 0;
+    background: rgba(29, 29, 29, 0.5);
+
+}
+ 
+
+ .testimonials h2{
+    padding-top:14%;
+	font-size: 70px;
+	font-family: poppins;
+	text-transform: uppercase;
+	color: #fff;
+    margin: auto;
+          
+      
+ }
+
+ 
+ 
+
+
+ 

@@ -1,0 +1,15 @@
+#footer{
+    padding-top: 60px;
+    background-color:#fff;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.social-links{
+    font-size: 40px;
+} 
+
+.social-links a{
+    padding-left: 20px;
+    margin: auto;
+    color: tomato;
+}

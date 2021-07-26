@@ -1,0 +1,38 @@
+.prediction-table{
+    max-width: 1050px;
+    margin: auto;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right:20px;
+    margin-bottom: 20px;
+    margin-top: -22px;
+    padding-bottom: 16px;
+    margin-left: 82px;
+    
+     
+}
+
+.prediction-table table{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    border-radius: 3px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+ 
+.prediction-table th{
+    
+    background-color:#1e272e;
+   padding: 10px;
+   
+   color: #fff;
+   margin: 1px;
+}
+.prediction-table td{
+    
+     padding: 10px;
+     margin: 1px;
+}

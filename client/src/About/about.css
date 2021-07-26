@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@200;400&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;  
+}
+.Aboutcontent{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+}
+.banner{
+    background-image: url('./hbg.png');
+    height: 300px;
+    width: 100%;
+    -webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+    
+    
+}
+.banner h2{
+    padding-top: 10%;
+	font-size: 70px;
+	font-family: poppins;
+	text-transform: uppercase;
+	color: #fff;
+}
+.article{
+    background-color: #fff;
+    padding: 5%;
+    width: 100%;
+    float: left;
+}
+.artlef{
+    width: 50%;
+    float: left;
+    padding: 1%;
+    background-color: #fff;
+}
+.artlef h2{
+    font-family: poppins;
+    color: #2c3e50;
+    font-size: 30px;
+    background-color: #fff;
+    
+}
+.artlef p{
+    color: #2c3e50;
+    font-family: 'Encode Sans SC', sans-serif;
+    background-color: #fff;
+}
+.artrig{
+    width: 50%;
+    float: left;
+    padding: 1%;
+    background-color: #ecf0f1;
+    border-radius: 2%;
+}
+.artrig img{
+    float: left;
+    width: 100%;
+    border-radius: 1.5%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #ecf0f1;
+}
+.artbott{
+    width: 100%;
+    float: left;
+    padding: 1%;
+    color: #2c3e50;
+    font-family: 'Encode Sans SC', sans-serif;
+    background-color: #fff;
+}
+.articleup{
+    width: 100%;
+    float: left;
+    background-color: #fff;
+}
+
+
+.Ourservices{
+    background-color: #2C3A47;
+    padding: 5%;
+    width: 100%;
+    float: left;
+}
+.lser{
+    width: 50%;
+    float: left;
+    padding: 1%;
+    background-color: #2C3A47;
+}
+
+.rser{
+    width: 50%;
+    float: left;
+    padding: 1%;
+    background-color: #2C3A47;
+    color: #CAD3C8;
+    font-size: 30px;
+	font-family: poppins;
+}
+
+.Card:hover{
+        box-shadow: 0px 30px 18px -8px rgba(0,0,0,0.1);
+        transform: scale(1.05,1.05);
+        color: #00a8ff;
+}
+
+.team{
+    width: 100%;
+    float: left;
+    padding: 5%;
+    background-color: #F8EFBA;
+}
+
+.upperled{
+    width: 100%;
+    float: left;
+    padding: 5%;
+    background-color: #ffffff;
+    border-radius: 5%;
+    box-shadow: 0px 30px 18px -8px rgba(0,0,0,0.1);
+}
+
+.upperledl{
+    width: 40%;
+    float: left;
+    background-color: #ffffff;
+}
+
+.upperledl img{
+    border-radius: 3%;
+}
+
+.upperledr{
+    width: 60%;
+    float: left;
+    background-color: #ffffff;
+    color: #485460;
+}
+
+.lowerled{
+    width: 100%;
+    float: left;
+    padding: 5%;
+    background-color: #ffffff;
+    border-radius: 5%;
+    box-shadow: 0px 30px 18px -8px rgba(0,0,0,0.1);
+    margin-top: 2%;
+}
+
+.lowerledl{
+    width: 60%;
+    float: left;
+    background-color: #ffffff;
+    color: #485460;
+}
+
+.lowerledr img{
+    border-radius: 3%;
+}
+
+.lowerledr{
+    padding-left: 5%;
+    width: 40%;
+    float: left;
+    background-color: #ffffff;
+    
+}
+
+.cards{
+    margin: 1%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+    background-color: #ffffff;
+    width: 23%;
+    border-radius: 12px;
+    box-shadow: 0px 13px 10px -7px rgba(0,0,0,0.1);
+    float: left;
+  }
+  .cards:hover{
+    box-shadow: 0px 30px 18px -8px rgba(0,0,0,0.1);
+    transform: scale(1.05,1.05);
+  }
+  .card_img{
+    width: 100%;
+    height: 235px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  .card_info{
+    background-color: #fff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 16px 24px 24px 24px;
+    background-color: #fff;
+  }
+  .card_category{
+    font-family: "Raleway",sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #2f3640;
+    background-color: #ffffff;
+  }
+  .card_title{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: "Raleway",sans-serif;
+    background-color: #ffffff;
+    text-transform: capitalize;
+  
+  }

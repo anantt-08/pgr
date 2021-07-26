@@ -1,0 +1,122 @@
+/* 
+600 ke baad bekar
+767 ke baad dashbaord ko close krna hai
+*/
+/* 
+1040 ke baad bandd
+bekar kafi jalldh
+*/
+
+@media (min-width: 600px){
+.MuiContainer-root {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+}
+@media (min-width: 300px){
+.container, .container-sm {
+    max-width: 100%;
+}    
+}
+.react-bootstrap-table-pagination{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+    .banUserDiv {
+        width: 120px; 	height: 40px;	background-color:rgb(83, 83, 83);	border-radius: 50px;	position: relative;
+    }
+    .banUserDiv:hover {
+       	background-color:rgb(12, 12, 12);
+    }
+    .banUserDiv:before {
+        content: 'Yes';	position: absolute;	top: 12px;	left: 13px;	height: 2px;	color: #26ca28;	font-size: 16px;
+    }
+    .banUserDiv:after {
+        content: 'No';	position: absolute;	top: 12px; left: 84px;	height: 2px;	color: #fff;	font-size: 16px;
+    }
+    .banUserDiv label {
+        display: block;	width: 52px;	height: 22px;	border-radius: 50px;	transition: all .5s ease;
+        cursor: pointer;	position: absolute;	top: 9px;	z-index: 1;	left: 12px;	background: #ddd;
+    }
+    .banUserDiv input[type=checkbox]:checked + label {
+        left: 60px;	background: #26ca28;
+    }
+    @media   only screen and (max-width: 1125px)  and (min-width: 700px){
+        .banUserDiv {
+        width: 100px; 	height: 40px;	background-color:rgb(83, 83, 83);	border-radius: 50px;	position: relative;
+    }
+    .banUserDiv:hover {
+       	background-color:rgb(12, 12, 12);
+    }
+        .banUserDiv:before {
+            content: 'Yes';	position: absolute;	top: 12px;	left: 12px;	height: 2px;	color: #26ca28;	font-size: 15px;
+        }
+        .banUserDiv:after {
+            content: 'No';	position: absolute;	top: 12px; left: 74px;	height: 2px;	color: #fff;	font-size: 15px;
+        }
+        .banUserDiv label {
+            display: block;	width: 47px;	height: 20px;	border-radius: 50px;	transition: all .5s ease;
+            cursor: pointer;	position: absolute;	top: 9px;	z-index: 1;	left: 10px;	background: #ddd;
+        }
+        .banUserDiv input[type=checkbox]:checked + label {
+            left: 48px;	background: #26ca28;
+        }  
+     }   
+     
+    @media   only screen  and (max-width: 800px){
+        .banUserDiv {
+            width: 80px; 	height: 40px;	background-color:rgb(83, 83, 83);	border-radius: 50px;	position: relative;
+        }
+        .banUserDiv:hover {
+               background-color:rgb(12, 12, 12);
+        }
+        .banUserDiv:before {
+            content: 'Yes';	position: absolute;	top: 12px;	left: 12px;	height: 2px;	color: #26ca28;	font-size: 13px;
+        }
+        .banUserDiv:after {
+            content: 'No';	position: absolute;	top: 12px; left: 54px;	height: 2px;	color: #fff;	font-size: 13px;
+        }
+        .banUserDiv label {
+            display: block;	width: 37px;	height: 20px;	border-radius: 50px;	transition: all .5s ease;
+            cursor: pointer;	position: absolute;	top: 9px;	z-index: 1;	left: 10px;	background: #ddd;
+        }
+        .banUserDiv input[type=checkbox]:checked + label {
+            left: 37px;	background: #26ca28;
+        }  
+     }   
+.modal{
+    margin-top: 70px;
+    margin-left: 80px;
+}
+.modal-header{
+    background-color: green;
+    color:wheat;
+}
+
+.table-responsivee > table{
+table-layout: inherit !important;
+}
+.table-responsiveeee > table{
+    table-layout: inherit !important;
+    }
+ #select-filter-column-coursename > option{
+padding: 5px;
+margin:2px;
+font-family:cursive;
+ }  
+ #select-filter-column-batch > option{
+    padding: 15px;
+    margin:2px;
+    font-family:Lucida Console, Courier, monospace;
+     }  
+ @media only screen and (max-width: 550px) {
+    #select-filter-column-batch > option{
+        padding: 7px;
+        margin:2px;
+        font-size: 8px;
+         }  
+      }
+._3vLmCG3bB3CM2hhAiQX1tN{
+    bottom:100%;
+    z-index:99999999999 !important;
+}
