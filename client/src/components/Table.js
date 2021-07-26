@@ -171,7 +171,7 @@ const [prediction,setPrediction] = useState([]);
   const dispatch=useDispatch()
   const handleSubmit=async (e)=>{
       e.preventDefault();
-      const API=axios.create({baseURL:'http://localhost:9000'})
+      const API=axios.create({baseURL:'https://pgrdemo.herokuapp.com'})
 API.interceptors.request.use((req)=>{
     if(localStorage.getItem('profile')){
         req.headers.Authorization =`Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
@@ -254,7 +254,7 @@ useEffect(function(){
     "Access-Control-Allow-Origin": "*",
    }
    setloading(true);
- axios.get(`http://localhost:9000/users/data/${name}`,{
+ axios.get(`https://pgrdemo.herokuapp.com/users/data/${name}`,{
         headers}).then(
         (res)=>{
           setdata(res.data.data[id]);

@@ -6,7 +6,7 @@ import { useHistory} from "react-router-dom";
 import './Style/SearchBar.css'
 import Grid from '@material-ui/core/Grid';
 //default base url
-axios.defaults.baseURL = 'http://localhost:9000';
+axios.defaults.baseURL = 'https://pgrdemo.herokuapp.com';
 
 
 
