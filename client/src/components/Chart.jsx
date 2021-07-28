@@ -42,6 +42,7 @@ const Chart=(props)=>{
     {
 
         return(
+            
             <>
             <Line
             data={{
@@ -606,6 +607,7 @@ const Chart=(props)=>{
         }}
         />
         </>
+        
     )
 
     

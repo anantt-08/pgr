@@ -17,6 +17,10 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import Userlist from "./userlist";
 import MenuBookIcon from '@material-ui/icons/MenuBook';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import LoginUserList from './LoginUserList';
+import LoginUserList2 from './LoginUserList2';
+import FormatListNumberedRtlIcon from '@material-ui/icons/FormatListNumberedRtl';
 //& ${classname write } to change
 const useTreeItemStyles = makeStyles((theme) => ({
   root: {
@@ -167,6 +171,27 @@ useLayoutEffect(() => {
         bgColor="#1a73e8"
       />
     <Divider />
+
+    <StyledTreeItem
+        nodeId="6"
+        labelText="Login User List"
+        labelIcon={ListAltIcon}
+        onClick={()=>handleClick(<LoginUserList />)} 
+        color="#e3742f"
+        bgColor="#1a73e8"
+      />
+    <Divider />
+
+    <StyledTreeItem
+        nodeId="6"
+        labelText="Login User List by count"
+        labelIcon={FormatListNumberedRtlIcon}
+        onClick={()=>handleClick(<LoginUserList2 />)} 
+        color="#e3742f"
+        bgColor="#1a73e8"
+      />
+    <Divider />
+
     <Divider />
        <StyledTreeItem
         nodeId="50"

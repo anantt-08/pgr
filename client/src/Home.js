@@ -2,11 +2,13 @@ import React from 'react';
 import Nav from './Navbar';
 import './Style/Home.css';
 import "./App.css"
-import Footer from './Footer.js'
+import Footer from './Footer.js';
+
+import Plans from './components/Plans';
 
 const Home = () => {
     return (
-        <>
+        < >
             <div className="heading-img">
                 <div className="container mb-3 aos-init aos-animate"  >
                     <h1>Welcome to Praedico</h1>
@@ -49,17 +51,28 @@ const Home = () => {
                                             <p>Praedico assures to provide its’ services at least available prices, reckoning Financial Literacy Mission of praedico Global Research Pvt. Ltd.</p>
                                         </div>
                                     </div>
+                     
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+            {/* Plans page */}
+            <div className="plans-bg-div">
+                <Plans />  
+            </div>
+                   
+           
             </section>
 
 
 
             <section id="about" className="about-b section-bg">
                 <div className="container">
+
+
+           
 
                     <div className="row">
                         <div className="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch aos-init aos-animate" data-aos="fade-right">

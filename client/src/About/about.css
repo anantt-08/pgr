@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@200;400&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
@@ -110,7 +111,7 @@
 .team{
     width: 100%;
     float: left;
-    padding: 5%;
+    padding-top: 2%;
     background-color: #F8EFBA;
 }
 
@@ -177,7 +178,7 @@
     border-radius: 12px;
     box-shadow: 0px 13px 10px -7px rgba(0,0,0,0.1);
     float: left;
-  }
+}
   .cards:hover{
     box-shadow: 0px 30px 18px -8px rgba(0,0,0,0.1);
     transform: scale(1.05,1.05);
@@ -211,4 +212,100 @@
     background-color: #ffffff;
     text-transform: capitalize;
   
+  }
+
+  .cardss2{
+      display: none;
+  }
+
+  .upperledl2{
+      display: none;
+  }
+
+  .TeamMembersres{
+      display: none;
+  }
+
+  .cardsres{
+      display: none;
+  }
+
+  @media(max-width: 768px){
+    
+    .TeamMembersres{
+        display: block;
+    }
+
+      .rser{
+          width: 100%;
+      }    
+      
+      .cardss{
+          display: none;
+      }
+      .cardss2{
+          display: block;
+      }
+    
+      .artlef{
+          width: 100%;
+      }
+
+      .upperledl{
+          display: none;
+    }
+
+    .upperledl2{
+        display: block;
+        width: 100%;
+    }
+    
+    
+    .upperledr{
+        width: 100%;  
+    }
+    .upperledr h2{
+        padding-top: 5px;
+        font-size: 15px;
+    }
+
+    .lowerledl{
+        width: 100%;
+        padding: 0;
+    }
+    
+    .lowerledl h2{
+        padding-top: 5px;
+        font-size: 15px;
+    }
+    
+    .lowerledr{
+        
+        display: none;
+        
+    }
+
+    .TeamMembers{
+        display: none;
+    }
+
+    
+
+    .TeamMembers1 h4{
+        font-family: 'Encode Sans SC', sans-serif;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 2px;
+        font-weight: 500;
+        color: #2c3e50;
+    }
+
+    .cards{
+        display: none;
+    }
+
+    .cardsres{
+        display: block;
+        padding-bottom: 10px;
+    }
   }

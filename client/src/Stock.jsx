@@ -22,9 +22,19 @@ const [name,setName] = useState('')
     <>
       <div  className="SearchBar">
       <SearchBar  name={name} setName={setName} />
+
     </div>
-    <TableSelection/>
-    <div className="tablesCSS">     
+
+    <div style={{display:'flex'}}> 
+      
+    <TableSelection/>    
+    </div>
+  
+     
+  
+    
+    <div className="tablesCSS"> 
+    
       <Tables history={history} name={name}/>
     </div>
     </>

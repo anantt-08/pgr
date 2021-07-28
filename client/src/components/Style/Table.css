@@ -4,14 +4,24 @@
     max-width: 1200px;
     margin: auto;
     padding-top: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 30px;
+    overflow: auto;
   }
   
   .tableSelect{
-    margin: auto 10px;
-    text-align: center;
+    margin-top: 10px;
+    overflow-x:auto;
+     margin: 20px auto;
+    display: flex;
+     
+    
+  }
+  .tableSelect .navT{
+   padding: auto; 
+   height: auto;
   
   }
+  
  
   
   .navT{

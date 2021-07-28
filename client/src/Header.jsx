@@ -35,22 +35,29 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
     <div className='headd'>
     <center/>
         <div className='hdlogo'>
-            
+            <center>
             <img src={logo} width='60' height='60'/>
+            </center>
             
         </div>
         <div className='heading'>
+            <center>
             <h1 className='heading'>Praedico global research</h1>
+            </center>
         </div>
         {user ? (
-                <div style={{display:"flex",alignItems: 'center'}}>
+                <div >
 
-                  <div className='loginbtn' style={{marginRight:"36px"}}>
+                  <div className='loginbtn' >
+                    <center>
                       <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
+                      </center>
                   </div>
                   
                   <div className='signupbtn' >
+                    <center>
                   <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
+                  </center>
                   </div>
                 </div>           
                 ):

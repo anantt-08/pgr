@@ -20,7 +20,11 @@ import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {Data,Data1,Data2,Data3} from './All'
-import Card2 from "./Card2"
+import Avatar from '@material-ui/core/Avatar';
+import Card2 from "./Card2";
+import Card3 from "./Card3";
+
+import Container from '@material-ui/core/Container';
 function ncard(val){
 
 	return(
@@ -32,6 +36,18 @@ function ncard(val){
   
 	)
   }
+
+  function ncard2(val){
+
+	return(
+  <Card3 className="cardsdd"
+	  img={val.imgsrc}
+	  tit={val.name}
+	  txt={val.titl}
+	  />
+  
+	)
+  } 
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -71,6 +87,10 @@ function TabPanel(props) {
 	  backgroundColor: theme.palette.background.paper,
 	  width: 1400,
 	},
+	large: {
+		width: theme.spacing(20),
+		height: theme.spacing(20),
+	  },
   }));
 
 const Aboutcont = () =>{
@@ -134,9 +154,9 @@ const Aboutcont = () =>{
 					</div>
 
 					<div className='artrig'>
-
+						<center>
 						<img src={logo}  height='50%'/>
-
+						</center>
 					</div>
 				</div>
 
@@ -177,6 +197,25 @@ const Aboutcont = () =>{
 						</Grid>
 					</Grid>
 					</div>
+
+					<div className='cardss2'>
+						<br/>
+					<Grid container spacing={3}>
+						<br/>
+						<Grid item xs={12}>
+						<Card img={img1} tit='ANALYSIS' txt="We assist you with fundamental and technical analysis report of client's portfolio at certain time intervals." />
+						</Grid>
+						<Grid item xs={12}>
+						<Card img={img2} tit='PERFORMANCES' txt="We perform with a stock performance at different times with a target price of 6 months, 1 year, 3 years."/>
+						</Grid>
+						<Grid item xs={12}>
+						<Card img={img3} tit="PORTFOLIO" txt="We provide you with a service for a specific portfolio, which is specified at all times and in advance to meet your specific needs." />
+						</Grid>
+						<Grid item xs={12}>
+						<Card img={img4} tit="SERVICING" txt="Classroom Special Workshop with Cash and Options Adventure." />
+						</Grid>
+					</Grid>
+					</div>
 				</div>
 			</div>
 
@@ -211,6 +250,11 @@ const Aboutcont = () =>{
 						<div className='upperledl'>
 						<img src={ss} width='350' height='350'/>
 						</div>
+						<div className='upperledl2'>
+							<center>
+						<Avatar alt="Remy Sharp" src={ss} className={classes.large} />
+						</center>
+						</div>
 						<div className='upperledr'>
 						<h2>MR. SUNNY RALLI, DIRECTOR, CHIEF RESEARCH OFFICER(CRO).</h2>
 						<hr/>
@@ -227,6 +271,11 @@ const Aboutcont = () =>{
 
 					<br/>
 					<div className='lowerledl'>
+					<div className='upperledl2'>
+							<center>
+						<Avatar alt="Remy Sharp" src={ps} className={classes.large} />
+						</center>
+						</div>
 						<h2>MR. PRIYANK GUPTA,DIRECTOR,CHIEF TECHNICAL OFFICER(CTO).</h2>
 						<hr/>
 						<br/>
@@ -243,6 +292,7 @@ const Aboutcont = () =>{
 					</>
 					:
 					<>
+					<div className="TeamMembers">
 									<div className={classes.root}>
 					<AppBar position="static" color="default">
 						<Tabs
@@ -277,6 +327,13 @@ const Aboutcont = () =>{
 						{Data3.map(ncard)}
 						</TabPanel>
 					</SwipeableViews>
+					</div>
+					</div>
+					
+					<div className="TeamMembersres">
+							<hr/>
+							{Data.map(ncard2)}
+							
 					</div>
 					</>
 

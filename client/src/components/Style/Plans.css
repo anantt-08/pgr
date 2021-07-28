@@ -1,0 +1,48 @@
+.plans{
+    margin:20px auto;
+
+
+}
+
+.plans .img{
+    background-image: url('./../../Pics/plans-log.png');
+     
+     background-repeat: no-repeat;
+    height: 200px;
+    background-size:cover;
+
+}
+
+.plans label{
+    margin-top: 10px 0;
+    display: flex;
+    color: blue;
+    font-weight: 600;
+    font-size: 20px;
+    
+}
+.plans label .select-plan{
+    margin: 10px 2px;
+}
+
+.plans button{
+    display: flex;
+    margin: 20px 0;
+}
+
+.plans-text {
+    line-height: 5px;
+    background-color: rgb(94, 89, 89);
+    padding: 10px;
+    padding-top: 20px;
+    width: 100%;
+    color:rgb(255, 255, 255);
+    font-family:serif;
+    font-size: 20px;
+
+     
+}
+
+.plans .select-plan{
+    box-shadow: 0 2px 5px 3px lightskyblue;
+}

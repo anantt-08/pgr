@@ -121,3 +121,36 @@
   background-color: #ffffff;
 
 }
+
+@media(max-width: 768px){
+  
+  .hdlogo{
+    width: 100%;
+    float: left;
+  }
+  .heading{
+    width: 100%;
+    font-size: 24px;
+    font-weight: 900;
+    padding-left: 5px;
+    float: left;
+  }
+  .loginbtn{
+    width: 50%;
+    float: left;
+    background-color: #ffffff;
+    
+
+  }
+  .signupbtn{
+    width: 50%;
+    float: left;
+    background-color: #ffffff;
+    
+  }
+  .lser{
+    display:none;
+  }
+
+  
+}
