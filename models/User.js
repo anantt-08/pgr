@@ -8,7 +8,15 @@ const userSchema=new Schema({
   password:{type:String,required:true},
   admin:{type:Boolean,default:false},
   status:{type:Boolean,default:false},
-  id:{type:String}
+   token:{
+        type:String,
+        default:''
+    },
+  id:{type:String},
+  lastdate:Date,
+  lastupdate:Date,
+  payment:{type:Boolean,default:false},
+  adminpayment:{type:Boolean,default:false},
 })
 
 module.exports = mongoose.model('User',userSchema);

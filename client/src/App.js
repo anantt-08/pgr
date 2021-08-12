@@ -10,6 +10,8 @@ import Career from './Career'
 import Contact from './Contact'
 import Nav from './Navbar'
 import Button from '@material-ui/core/Button';
+import ResetPassword from "./resetPassword";
+import forgetPassword from "./forgetpassword";
 import Login from './Login'
 import dashboard from "./Dashboard";
 import GuestRoute from "./GuestRoute";
@@ -20,6 +22,8 @@ function App() {
     <>
       <BrowserRouter>
         <Switch>
+   <Route path="/change-password/:slug" exact component={ResetPassword} />
+          <GuestRoute path="/forget-password" exact component={forgetPassword} />
           <GuestRoute exact path="/" component={Home}/>
           <GuestRoute exact path="/data/:id" component={Stock} />
           <GuestRoute exact path="/about" component={About}/>

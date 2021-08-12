@@ -10,9 +10,9 @@
 .appwidth{
 	width: 400px;
 }
-
 @media(max-width: 470px){
 	.appwidth{
 	width:auto;
 }
 }
+

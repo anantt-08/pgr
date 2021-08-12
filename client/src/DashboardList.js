@@ -20,7 +20,10 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import LoginUserList from './LoginUserList';
 import LoginUserList2 from './LoginUserList2';
+import PaymentUserList from './PaymentUser';
 import FormatListNumberedRtlIcon from '@material-ui/icons/FormatListNumberedRtl';
+import PaymentIcon from '@material-ui/icons/Payment';
+
 //& ${classname write } to change
 const useTreeItemStyles = makeStyles((theme) => ({
   root: {
@@ -162,31 +165,42 @@ useLayoutEffect(() => {
         bgColor="#fcefe3"
       />
     <Divider />
+    <StyledTreeItem
+        nodeId="8"
+        labelText="Login User List"
+        labelIcon={ListAltIcon}
+        onClick={()=>handleClick(<LoginUserList />)} 
+     color="#e3742f"
+        bgColor="#fcefe3"
+      />
+    <Divider />
+
+    <StyledTreeItem
+        nodeId="9"
+        labelText="Login User List by count"
+        labelIcon={FormatListNumberedRtlIcon}
+        onClick={()=>handleClick(<LoginUserList2 />)} 
+      color="#e3742f"
+        bgColor="#fcefe3"
+      />
+
+      <Divider />
+
+      <StyledTreeItem
+          nodeId="10"
+          labelText="Payment User List"
+          labelIcon={PaymentIcon}
+          onClick={()=>handleClick(<PaymentUserList />)} 
+        color="#e3742f"
+          bgColor="#fcefe3"
+        />
+
+    <Divider />
   <StyledTreeItem
         nodeId="7"
         labelText="Home"
         labelIcon={MenuBookIcon}
         onClick={()=>props.history.push("/")} 
-        color="#e3742f"
-        bgColor="#1a73e8"
-      />
-    <Divider />
-
-    <StyledTreeItem
-        nodeId="6"
-        labelText="Login User List"
-        labelIcon={ListAltIcon}
-        onClick={()=>handleClick(<LoginUserList />)} 
-        color="#e3742f"
-        bgColor="#1a73e8"
-      />
-    <Divider />
-
-    <StyledTreeItem
-        nodeId="6"
-        labelText="Login User List by count"
-        labelIcon={FormatListNumberedRtlIcon}
-        onClick={()=>handleClick(<LoginUserList2 />)} 
         color="#e3742f"
         bgColor="#1a73e8"
       />

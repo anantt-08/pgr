@@ -121,8 +121,10 @@
   background-color: #ffffff;
 
 }
+ 
 
 @media(max-width: 768px){
+
   
   .hdlogo{
     width: 100%;
@@ -136,15 +138,15 @@
     float: left;
   }
   .loginbtn{
-    width: 50%;
+    width: 100%;
     float: left;
     background-color: #ffffff;
     
 
   }
   .signupbtn{
-    width: 50%;
-    float: left;
+    width: 100%;
+    text-align: center;
     background-color: #ffffff;
     
   }
@@ -154,3 +156,5 @@
 
   
 }
+
+

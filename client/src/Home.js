@@ -1,14 +1,65 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import Nav from './Navbar';
 import './Style/Home.css';
-import "./App.css"
+import "./App.css";
+import axios from "axios";
 import Footer from './Footer.js';
-
+import Button from '@material-ui/core/Button';
 import Plans from './components/Plans';
-
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 const Home = () => {
+      const [user,setUser]=useState(JSON.parse(localStorage.getItem('profile')));
+   const changestatus  = (data) =>{
+    data.map((item)=>{
+               var current=new Date().toString();
+      var  lastupdate= new Date(item.lastupdate).toString();
+      var last=new Date();
+      current = current.substring(0,15).split('-')
+      current = current[1] + '-' + current[2] + '-' + current[0]
+      current=new Date(current);
+      lastupdate = lastupdate.substring(0,15).split('-')
+      lastupdate = lastupdate[1] + '-' + lastupdate[2] + '-' + lastupdate[0]
+      lastupdate=new Date(lastupdate);
+            // console.log(current)
+      // console.log(lastupdate)
+     // console.log(item)
+      if(lastupdate.valueOf() > current.valueOf() || lastupdate.valueOf() < current.valueOf()){
+      var  lastdate= new Date(item.lastdate).toString();
+               lastdate = lastdate.substring(0,15).split('-')
+      lastdate = lastdate[1] + '-' + lastdate[2] + '-' + lastdate[0]
+      lastdate=new Date(lastdate);
+      //console.log(item)
+              if(current.valueOf() <= lastdate.valueOf()){
+                 console.log(item)
+ axios.put(`http://localhost:9000/changestatus/${item._id}`,{payment:true,adminpayment:false,lastupdate:last}).then((res)=>{
+      console.log("yes omcomiing")
+      if(user){
+           res.data.token=user.token;
+        localStorage.setItem("profile", JSON.stringify(res.data));
+              }
+    }).catch((err)=>{console.log(err)})
+              }
+            else{
+               axios.put(`http://localhost:9000/changestatus/${item._id}`,{payment:false,adminpayment:false,lastupdate:last}).then((res)=>{
+      console.log("yes Completed")
+         if(user){
+           res.data.token=user.token;
+        localStorage.setItem("profile", JSON.stringify(res.data));
+              }
+    }).catch((err)=>{console.log(err)}) 
+      }
+      }     
+      //  console.log(new Date(new Date().toString().split(" ").slice(1, 4).join(" ")))
+  })
+   }
+  useEffect(() => { 
+    axios.get("http://localhost:9000/userlisttwo").then((res)=>{
+      changestatus(res.data.userlist)
+    }).catch((err)=>{console.log(err)})
+  }, [])
     return (
-        < >
+        <>
+               <NotificationContainer />
             <div className="heading-img">
                 <div className="container mb-3 aos-init aos-animate"  >
                     <h1>Welcome to Praedico</h1>

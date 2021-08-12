@@ -22,6 +22,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Style/Table.css";
 import "./Style/PredictionTable.css";
 import Dialog from "@material-ui/core/Dialog";
+import Alert from "@material-ui/lab/Alert";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
@@ -33,6 +34,7 @@ import {
   NotificationManager,
 } from "react-notifications";
 import Chart from "./Chart";
+import Historical from "../Historical";
 
 //importing plans
 import Plans from "./Plans";
@@ -97,8 +99,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Tables({ history, name }) {
-  console.log("....../", name);
+export default function Tables({ history, whole, setwhole, name }) {
   const [Color, setColor] = useState({});
   const classes = useStyles();
   const [data, setdata] = useState([]);
@@ -134,6 +135,8 @@ export default function Tables({ history, name }) {
   const [ChartSK, setChartSK] = useState([]);
   const [ChartSD, setChartSD] = useState([]);
 
+  const [Historic, setHistoric] = useState([]);
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -145,10 +148,10 @@ export default function Tables({ history, name }) {
     setOpenn(false);
   };
 
-  console.log("Datttaaaaa", data);
+  //console.log("Datttaaaaa",data)
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-  console.log("------------", user);
+  //console.log("------------",user)
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -174,7 +177,7 @@ export default function Tables({ history, name }) {
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const API = axios.create({ baseURL: "https://pgrdemo.herokuapp.com" });
+    const API = axios.create({ baseURL: "http://localhost:9000" });
     API.interceptors.request.use((req) => {
       if (localStorage.getItem("profile")) {
         req.headers.Authorization = `Bearer ${
@@ -227,10 +230,9 @@ export default function Tables({ history, name }) {
     setShowPassword(false);
   };
 
-  console.log(Chartcategory, "sjsjs");
   useEffect(
     function () {
-      if (wholedata != null) {
+      if (wholedata != null && id != null) {
         setloading(true);
         setdata(wholedata.data[id]);
         let parr = [];
@@ -246,6 +248,8 @@ export default function Tables({ history, name }) {
           wholedata.color[window.location.pathname.split("/").slice(-1)[0]]
         );
         setChartcategory(window.location.pathname.split("/").slice(-1)[0]);
+      } else {
+        setloading(true);
       }
     },
     [history.location.pathname]
@@ -257,22 +261,43 @@ export default function Tables({ history, name }) {
       };
       setloading(true);
       axios
-        .get(`https://pgrdemo.herokuapp.com/users/data/${name}`, {
+        .get(`http://localhost:9000/users/first/${name}`, {
           headers,
         })
         .then((res) => {
           setdata(res.data.data[id]);
-          setwholedata(res.data);
           let parr = [];
           Object.values(res.data.objdata).map((item, index) => parr.push(item));
-
           setPrediction(parr);
-
           let arr = [];
           Object.values(res.data.data[id][0]).map((item, index) =>
             arr.push(item)
           );
           setheader(arr);
+          setloading(false);
+          setColor(
+            res.data.color[window.location.pathname.split("/").slice(-1)[0]]
+          );
+          setChartdate(res.data.chart.psar.date);
+          setChartPSAR(res.data.chart.psar.psar);
+          setHistoric(res.data.historical);
+          setChartcategory(window.location.pathname.split("/").slice(-1)[0]);
+        })
+        .catch((err) => {
+          setloading(false);
+          console.log("error");
+        });
+      axios
+        .get(`http://localhost:9000/users/data/${name}`, {
+          headers,
+        })
+        .then((res) => {
+          setdata(res.data.data[id]);
+          setwholedata(res.data);
+          setwhole("too");
+          let parr = [];
+          Object.values(res.data.objdata).map((item, index) => parr.push(item));
+          setPrediction(parr);
           setloading(false);
           setColor(
             res.data.color[window.location.pathname.split("/").slice(-1)[0]]
@@ -304,26 +329,7 @@ export default function Tables({ history, name }) {
           setChartSK(res.data.chart.stoch.sk);
           setChartSD(res.data.chart.stoch.sd);
 
-          console.log("CHART KI DATE", Chartdate);
-          console.log("CHART KA DATA", ChartPSAR);
-          console.log("CHART KI CATEGORY", Chartcategory);
-          console.log("CHART KA ADX", ChartADX);
-          console.log("CHART KA plusDI", ChartplusDI);
-          console.log("CHART KA minusDI", ChartminusDI);
-          console.log("CHART KA RSI", ChartRSI);
-
-          console.log("CHART KA MACD", ChartMACD);
-          console.log("CHART KA MACDEXP9", ChartExp9Macd);
-          console.log("CHART KA MACDHISTOgram", ChartMacdHisto);
-          console.log("CHart ka MFI", ChartMFI);
-          console.log("Chart ka CCI", ChartCCI);
-
-          console.log("CHART KA WR", ChartWR);
-          console.log("CHART KA UB", BBUB);
-          console.log("CHART KA MB", BBMB);
-          console.log("CHart ka LB", BBLB);
-          console.log("Chart ka SK", ChartSK);
-          console.log("Chart ka SD", ChartSD);
+          setHistoric(res.data.historical);
         })
         .catch((err) => {
           setloading(false);
@@ -413,7 +419,7 @@ export default function Tables({ history, name }) {
                   borderRadius: "5px",
                 }}
               >
-                Strong BUY
+                Sell
               </p>
             </div>
           );
@@ -510,8 +516,6 @@ export default function Tables({ history, name }) {
   const finalans = [];
   const rows =
     header.length > 0 ? data.slice(1).map((item) => replace(item)) : [];
-  //console.log(".../////....",data);
-
   return loading ? (
     <div
       style={{
@@ -527,54 +531,66 @@ export default function Tables({ history, name }) {
   ) : (
     <>
       <NotificationContainer />
-      <div className="prediction-table">
-        <center>
-          <div>
-            <h2>Praedico Predictions</h2>
-            <table>
-              <tr>
-                <th>PSAR Trend</th>
-                <th>ADX Indicators</th>
-                <th>RSI Indicators</th>
-                <th>MACD Indicators</th>
-                <th>MFI Oscillators</th>
-                <th>CCI Oscillators</th>
-                <th>William %R Indicators</th>
-              </tr>
-              {/* Calling Predictions */}
-              <tr>
-                {user ? (
-                  <>
-                    {prediction.map((item, index) => (
-                      <>{showPrediction(item)}</>
-                    ))}
-                  </>
-                ) : (
-                  <>
-                    <td>{showPrediction(prediction[0])}</td>
-                    <td>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={handleClickOpen}
-                      >
-                        <VisibilityIcon />
-                        <span
-                          style={{ marginLeft: "3px", fontWeight: "bolder" }}
+      {user ? (
+        <div className="prediction-table" style={{ paddingTop: "30px" }}>
+          <center>
+            <div>
+              <h2>Praedico Predictions</h2>
+              <table>
+                <tr>
+                  <th>PSAR Trend</th>
+                  <th>ADX Indicators</th>
+                  <th>RSI Indicators</th>
+                  <th>MACD Indicators</th>
+                  <th>MFI Oscillators</th>
+                  <th>CCI Oscillators</th>
+                  <th>William %R Indicators</th>
+                </tr>
+                {/* Calling Predictions */}
+                <tr>
+                  {user && user?.result.payment ? (
+                    <>
+                      {prediction.map((item, index) => (
+                        <>{showPrediction(item)}</>
+                      ))}
+                    </>
+                  ) : (
+                    <>
+                      <td>{showPrediction(prediction[0])}</td>
+                      <td>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          onClick={handleClickOpen}
                         >
-                          Show
-                        </span>
-                      </Button>
-                    </td>
-                  </>
-                )}
-              </tr>
-            </table>
-          </div>
-          <br />
-          {user ? <h3>{showFinalPredict()}</h3> : <></>}
-        </center>
-      </div>
+                          <VisibilityIcon />
+                          <span
+                            style={{ marginLeft: "3px", fontWeight: "bolder" }}
+                          >
+                            Show
+                          </span>
+                        </Button>
+                      </td>
+                    </>
+                  )}
+                </tr>
+              </table>
+            </div>
+            <br />
+            {user && user?.result.payment  ? (
+              <>
+                <h3>{showFinalPredict()}</h3>
+
+                {Historic.length === 0 ? null : <Historical data={Historic} />}
+              </>
+            ) : (
+              <></>
+            )}
+          </center>
+        </div>
+      ) : (
+        <></>
+      )}
       {user ? (
         <div className="Chartwalidiv">
           <Chart
@@ -691,11 +707,11 @@ export default function Tables({ history, name }) {
         aria-labelledby="form-dialog-title"
       >
         <DialogContent>
-          <div className="form">
+          <div className="form" style={{ overflowY: "hidden" }}>
             <Container
               component="main"
               maxWidth="xs"
-              style={{ paddingTop: "15px" }}
+              style={{ overflowY: "hidden", padding: "0" }}
             >
               <Paper
                 className={classes.paper}
@@ -703,103 +719,53 @@ export default function Tables({ history, name }) {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  paddingTop: "15px",
+                  overflowY: "hidden",
                 }}
               >
-                <Avatar className={classes.avatar}>
-                  <AccountCircleIcon />
-                </Avatar>
-                <Typography variant="h5">
-                  {isSignup ? "Sign Up" : "Sign In"}{" "}
-                </Typography>
+                {/* <Avatar className={classes.avatar} >
+          <AccountCircleIcon/>
+        </Avatar>
+        <Typography variant="h5"  >{isSignup?'Sign Up':'Sign In'}  </Typography> */}
 
-                <form
-                  className={classes.form}
-                  onSubmit={handleSubmit}
-                  style={{ padding: "15px" }}
-                >
-                  <Grid container spacing={2}>
-                    {isSignup && (
-                      <>
-                        <Input
-                          name="firstName"
-                          label="First Name"
-                          handleChange={handleChange}
-                          autoFocus
-                          half
-                        />
-                        <Input
-                          name="lastName"
-                          label="Last Name"
-                          handleChange={handleChange}
-                          half
-                        />
-                      </>
-                    )}
-                    <Input
-                      name="email"
-                      label="Email Address"
-                      handleChange={handleChange}
-                      type="email"
-                    />
-                    {isSignup && (
-                      <Input
-                        name="mobileno"
-                        label="Contact Number"
-                        handleChange={handleChange}
-                        type="text"
-                      />
-                    )}
+                {/* Plans.js */}
 
-                    <Input
-                      name="password"
-                      label="Password"
-                      handleChange={handleChange}
-                      type={showPassword ? "text" : "password"}
-                      handleShowPassword={handleShowPassword}
-                    />
-                    {isSignup && (
-                      <Input
-                        name="confirmPassword"
-                        label="Repeat Password"
-                        handleChange={handleChange}
-                        type="password"
-                      />
-                    )}
-                  </Grid>
-                  <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                      <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                      >
-                        {isSignup ? "Sign Up" : "Sign In"}
-                      </Button>
-                    </Grid>
+                <Plans />
 
-                    <Grid item xs={12}>
-                      <Grid container justify="flex-end">
+                {/* <form className={classes.form} onSubmit={handleSubmit} style={{padding:"15px"}}>
+            <Grid container spacing={2}>
+              {
+                isSignup&&(
+                  <>
+                  <Input name="firstName" label="First Name" handleChange={handleChange} autoFocus half/>
+                  <Input name="lastName" label="Last Name" handleChange={handleChange} half/>
+                  </>
+                )
+              }
+              <Input name="email" label="Email Address" handleChange={handleChange} type="email"/>
+              { isSignup &&  <Input name="mobileno" label="Contact Number" handleChange={handleChange} type="text"/>}
+              
+              <Input name="password" label="Password" handleChange={handleChange} type={showPassword?"text":"password"} handleShowPassword={handleShowPassword}/>
+              { isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password"/>}
+            </Grid>
+            <Grid container spacing={3}>
+              
+            <Grid item xs={12}>
+            <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                {isSignup?'Sign Up':'Sign In'}
+            </Button>
+            </Grid>
+  
+            <Grid item xs={12}>
+            <Grid container justify='flex-end'>
                         <Grid item>
-                          <Button onClick={switchMode}>
-                            <span
-                              style={{
-                                fontWeight: "bolder",
-                                color: "darkgreen",
-                              }}
-                            >
-                              {isSignup
-                                ? "Already have an account? Sign In"
-                                : "If not have account, Sign Up"}
-                            </span>
-                          </Button>
+                            <Button onClick={switchMode}>
+                                <span style={{fontWeight:"bolder",color:"darkgreen"}}>{isSignup ? 'Already have an account? Sign In':'If not have account, Sign Up' }</span>
+                            </Button>
                         </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </form>
+            </Grid>
+            </Grid>
+            </Grid>
+        </form> */}
               </Paper>
             </Container>
           </div>

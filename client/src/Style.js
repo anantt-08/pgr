@@ -23,5 +23,21 @@ export default makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+   forget:{
+    display:"flex",
+    alignItems:"center",
+    justifyContent:"center",
+    fontSize:"16px",
+  }
+  ,
+  yo:{
+    color: "blue",
+    backgroundColor: "transparent",
+    textDecoration: "none",
+    "&:hover": {
+      color: "red",
+      textDecoration: "underline",  
+    }
   }
 }));

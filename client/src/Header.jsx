@@ -10,7 +10,6 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 
   const classes=useStyles()
   const [user,setUser]=useState(JSON.parse(localStorage.getItem('profile')));
-  console.log(user)
   const dispatch=useDispatch()
   const history=useHistory()
   const location=useLocation()
@@ -50,7 +49,10 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 
                   <div className='loginbtn' >
                     <center>
-                      <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
+              <Avatar
+                src=""
+                className={classes.purple}
+              />
                       </center>
                   </div>
                   

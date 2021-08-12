@@ -3,7 +3,7 @@
 .tablesCSS{
     max-width: 1200px;
     margin: auto;
-    padding-top: 50px;
+    padding-top: 10px;
     padding-bottom: 30px;
     overflow: auto;
   }
@@ -22,7 +22,10 @@
   
   }
   
- 
+ .MuiDialogContent-root{
+  overflow-y: hidden !important;
+  padding-top: 0px !important;
+ }
   
   .navT{
     color: rgb(255, 255, 255);
