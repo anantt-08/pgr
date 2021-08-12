@@ -12,7 +12,6 @@ router.use(
   })
 );
 router.use(bodyParser.json());
-
 router.get("/first/:name", function (req, res) {
   let getname = req.params.name;
   Main.findOne({ symbol: getname }, { "data.psar": 1 }, function (err, user) {
