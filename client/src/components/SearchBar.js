@@ -1,109 +1,92 @@
-import React,{useState,useEffect} from 'react'
- 
-import { ReactSearchAutocomplete } from 'react-search-autocomplete';
-import axios from 'axios';
-import { useHistory} from "react-router-dom";
-import './Style/SearchBar.css'
-import Grid from '@material-ui/core/Grid';
+import React, { useState, useEffect } from "react";
+
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import "./Style/SearchBar.css";
+import Grid from "@material-ui/core/Grid";
 //default base url
-axios.defaults.baseURL = 'http://localhost:9000';
+axios.defaults.baseURL = "http://pgrdemo.herokuapp.com";
 
-
-
-
-function Search({name,setName,whole,setwhole}) {
- 
+function Search({ name, setName, whole, setwhole }) {
   const history = useHistory();
-   
-  const[val,setVal] = useState([])
- 
-const fetchData = async ()=>{
-  
+
+  const [val, setVal] = useState([]);
+
+  const fetchData = async () => {
     //fetching all details tablse of company
-    const result= await axios.get('/names/company');
-    setVal(result.data)
- 
-   }
-  
+    const result = await axios.get("/names/company");
+    setVal(result.data);
+  };
 
- const items =[]
+  const items = [];
 
-  val.map((res,index)=>(
-    items.push({name: res.symbol})
-   ))
- 
- //console.log("items",items)
-  
+  val.map((res, index) => items.push({ name: res.symbol }));
 
+  //console.log("items",items)
 
- useEffect(() => {
-  fetchData();
-}, []);
-
- 
-   
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
     //console.log(string, results)
-    if(string==""){
+    if (string == "") {
       setName("");
       setwhole(null);
     }
-  }
+  };
 
   const handleOnHover = (result) => {
     // the item hovered
-   // console.log(result)
-  }
+    // console.log(result)
+  };
 
   const handleOnSelect = (item) => {
-          //history.push(`/data/adx`,{params: item.name})
-          //console.log(item.name)
-        setName(item.name);
-      setwhole(null);
-        history.push("/data/psar");
-
-        }
+    //history.push(`/data/adx`,{params: item.name})
+    //console.log(item.name)
+    setName(item.name);
+    setwhole(null);
+    history.push("/data/psar");
+  };
 
   const handleOnFocus = () => {
-   // console.log('Focused')
-    
-       
-      
-  }
-
-
-
-
- 
-
- 
+    // console.log('Focused')
+  };
 
   return (
     <Grid container spacing={3}>
-        <Grid item xs={12}>
-        <form onSubmit={e=>handleOnSelect()} className="App">
-    <br />
-      <header className="App-header" >
-        <div className="appwidth">
-          <h3 style={{marginBottom:"5px",marginLeft:"20px",color:'#2c3e50'}} > Enter stock/symbol</h3>
-          <ReactSearchAutocomplete
-            items={items}
-            onSearch={handleOnSearch}
-            onHover={handleOnHover}
-            onSelect={handleOnSelect}
-            onFocus={handleOnFocus}
-            autoFocus
-          />
-        </div>
-      </header>
-    </form>
-        </Grid>
+      <Grid item xs={12}>
+        <form onSubmit={(e) => handleOnSelect()} className="App">
+          <br />
+          <header className="App-header">
+            <div className="appwidth">
+              <h3
+                style={{
+                  marginBottom: "5px",
+                  marginLeft: "20px",
+                  color: "#2c3e50",
+                }}
+              >
+                {" "}
+                Enter stock/symbol
+              </h3>
+              <ReactSearchAutocomplete
+                items={items}
+                onSearch={handleOnSearch}
+                onHover={handleOnHover}
+                onSelect={handleOnSelect}
+                onFocus={handleOnFocus}
+                autoFocus
+              />
+            </div>
+          </header>
+        </form>
+      </Grid>
     </Grid>
-    
-  )
+  );
 }
 
-export default Search
+export default Search;

@@ -177,7 +177,7 @@ export default function Tables({ history, whole, setwhole, name }) {
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const API = axios.create({ baseURL: "http://localhost:9000" });
+    const API = axios.create({ baseURL: "http://pgrdemo.herokuapp.com" });
     API.interceptors.request.use((req) => {
       if (localStorage.getItem("profile")) {
         req.headers.Authorization = `Bearer ${
@@ -261,7 +261,7 @@ export default function Tables({ history, whole, setwhole, name }) {
       };
       setloading(true);
       axios
-        .get(`http://localhost:9000/users/first/${name}`, {
+        .get(`http://pgrdemo.herokuapp.com/users/first/${name}`, {
           headers,
         })
         .then((res) => {
@@ -288,7 +288,7 @@ export default function Tables({ history, whole, setwhole, name }) {
           console.log("error");
         });
       axios
-        .get(`http://localhost:9000/users/data/${name}`, {
+        .get(`http://pgrdemo.herokuapp.com/users/data/${name}`, {
           headers,
         })
         .then((res) => {
@@ -577,7 +577,7 @@ export default function Tables({ history, whole, setwhole, name }) {
               </table>
             </div>
             <br />
-            {user && user?.result.payment  ? (
+            {user && user?.result.payment ? (
               <>
                 <h3>{showFinalPredict()}</h3>
 
