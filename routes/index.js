@@ -143,7 +143,7 @@ router.get(
     }
 );
 
-router.put("/changestatus/:id",(req, res, next) => {
+router.put("/changestatusyes/:id",(req, res, next) => {
     User.findByIdAndUpdate(req.params.id, {
            payment:req.body.payment,adminpayment:req.body.adminpayment,lastupdate:req.body.lastupdate
     }, { new: true })

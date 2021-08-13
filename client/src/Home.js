@@ -38,7 +38,7 @@ const Home = () => {
         if (current.valueOf() <= lastdate.valueOf()) {
           console.log(item);
           axios
-            .put(`https://pgrdemo.herokuapp.com/changestatus/${item._id}`, {
+            .put(`https://pgrdemo.herokuapp.com/changestatusyes/${item._id}`, {
               payment: true,
               adminpayment: false,
               lastupdate: last,
@@ -55,7 +55,7 @@ const Home = () => {
             });
         } else {
           axios
-            .put(`https://pgrdemo.herokuapp.com/changestatus/${item._id}`, {
+            .put(`https://pgrdemo.herokuapp.com/changestatusyes/${item._id}`, {
               payment: false,
               adminpayment: false,
               lastupdate: last,
