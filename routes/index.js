@@ -9,7 +9,7 @@ var nodemailer = require("nodemailer");
 const User = require("../models/User");
 const Main = require("../models/main");
 
-mongoose.connect(db,{useNewUrlParser:true,useUnifiedTopology:true},function(err,result){
+mongoose.connect(process.env.MONGODB_URI || db,{useNewUrlParser:true,useUnifiedTopology:true},function(err,result){
   if(err){
     console.log(`Error is: ${err}`)
   }
