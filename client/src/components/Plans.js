@@ -48,7 +48,7 @@ const Plans = () => {
       }
       setbuyloading(true);
       const response = await axios.post(
-        `http://pgrdemo.herokuapp.com/users/createOrder`,
+        `https://pgrdemo.herokuapp.com/users/createOrder`,
         {
           amount: plann,
         }
@@ -88,7 +88,7 @@ const Plans = () => {
           // dispatch(actions.buyuserRequest(data));
 
           const resp = await axios.post(
-            "http://pgrdemo.herokuapp.com/users/buy",
+            "https://pgrdemo.herokuapp.com/users/buy",
             data
           );
 

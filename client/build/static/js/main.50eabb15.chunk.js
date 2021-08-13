@@ -271,7 +271,7 @@
         Z = (a(225), a(355), a(647)),
         Q = a(650),
         K = a(648),
-        Y = V.a.create({ baseURL: "http://pgrdemo.herokuapp.com" });
+        Y = V.a.create({ baseURL: "https://pgrdemo.herokuapp.com" });
       Y.interceptors.request.use(function (e) {
         return (
           localStorage.getItem("profile") &&
@@ -1337,7 +1337,7 @@
                             C(!0),
                             (t.next = 10),
                             V.a.post(
-                              "http://pgrdemo.herokuapp.com/users/createOrder",
+                              "https://pgrdemo.herokuapp.com/users/createOrder",
                               { amount: d }
                             )
                           );
@@ -1390,7 +1390,7 @@
                                               }),
                                               (t.next = 3),
                                               V.a.post(
-                                                "http://pgrdemo.herokuapp.com/users/buy",
+                                                "https://pgrdemo.herokuapp.com/users/buy",
                                                 c
                                               )
                                             );
@@ -1761,7 +1761,7 @@
               var e = { "Access-Control-Allow-Origin": "*" };
               H(!0),
                 V.a
-                  .get("http://pgrdemo.herokuapp.com/users/first/".concat(n), {
+                  .get("https://pgrdemo.herokuapp.com/users/first/".concat(n), {
                     headers: e,
                   })
                   .then(function (e) {
@@ -1791,7 +1791,7 @@
                     H(!1), console.log("error");
                   }),
                 V.a
-                  .get("http://pgrdemo.herokuapp.com/users/data/".concat(n), {
+                  .get("https://pgrdemo.herokuapp.com/users/data/".concat(n), {
                     headers: e,
                   })
                   .then(function (e) {
@@ -2492,7 +2492,7 @@
         },
         ge = a(277);
       a(249);
-      V.a.defaults.baseURL = "http://pgrdemo.herokuapp.com";
+      V.a.defaults.baseURL = "https://pgrdemo.herokuapp.com";
       var pe = function (e) {
           e.name;
           var t = e.setName,
@@ -3738,7 +3738,7 @@
             return (
               Object(c.useEffect)(function () {
                 V.a
-                  .get("http://pgrdemo.herokuapp.com/userlisttwo")
+                  .get("https://pgrdemo.herokuapp.com/userlisttwo")
                   .then(function (e) {
                     e.data.userlist.map(function (e) {
                       var t = new Date().toString(),
@@ -3773,7 +3773,7 @@
                             ? (console.log(e),
                               V.a
                                 .put(
-                                  "http://pgrdemo.herokuapp.com/changestatus/".concat(
+                                  "https://pgrdemo.herokuapp.com/changestatus/".concat(
                                     e._id
                                   ),
                                   {
@@ -3796,7 +3796,7 @@
                                 }))
                             : V.a
                                 .put(
-                                  "http://pgrdemo.herokuapp.com/changestatus/".concat(
+                                  "https://pgrdemo.herokuapp.com/changestatus/".concat(
                                     e._id
                                   ),
                                   {
@@ -4407,7 +4407,7 @@
                       !1)
                     : void V.a
                         .post(
-                          "http://pgrdemo.herokuapp.com/updatePassword",
+                          "https://pgrdemo.herokuapp.com/updatePassword",
                           c.state
                         )
                         .then(function (e) {
@@ -4564,7 +4564,7 @@
                   );
                 var t = { email: c.state.email };
                 V.a
-                  .post("http://pgrdemo.herokuapp.com/reset", t)
+                  .post("https://pgrdemo.herokuapp.com/reset", t)
                   .then(function (e) {
                     g.NotificationManager.success(
                       "Password Reset link sent to your email .Please check the your email.Link Will be Valid For 30 min"
@@ -4712,7 +4712,7 @@
                             if (
                               (t.preventDefault(),
                               (a = V.a.create({
-                                baseURL: "http://pgrdemo.herokuapp.com",
+                                baseURL: "https://pgrdemo.herokuapp.com",
                               })).interceptors.request.use(function (e) {
                                 return (
                                   localStorage.getItem("profile") &&
@@ -4986,7 +4986,7 @@
                 var a = localStorage.getItem("profile");
                 V.a
                   .put(
-                    "http://pgrdemo.herokuapp.com/changestatus/".concat(e),
+                    "https://pgrdemo.herokuapp.com/changestatus/".concat(e),
                     { status: !t },
                     { headers: { Authorization: a.token } }
                   )
@@ -5010,7 +5010,7 @@
                   var e = this,
                     t = localStorage.getItem("profile");
                   V.a
-                    .get("http://pgrdemo.herokuapp.com/userlist", {
+                    .get("https://pgrdemo.herokuapp.com/userlist", {
                       headers: { Authorization: t.token },
                     })
                     .then(function (t) {
@@ -5270,7 +5270,7 @@
         Ut = a(287),
         Vt = a.n(Ut),
         qt = a(31),
-        Zt = "http://pgrdemo.herokuapp.com/",
+        Zt = "https://pgrdemo.herokuapp.com/",
         Qt = (function () {
           var e = Object(N.a)(
             k.a.mark(function e(t) {

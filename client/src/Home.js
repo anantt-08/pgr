@@ -38,7 +38,7 @@ const Home = () => {
         if (current.valueOf() <= lastdate.valueOf()) {
           console.log(item);
           axios
-            .put(`http://pgrdemo.herokuapp.com/changestatus/${item._id}`, {
+            .put(`https://pgrdemo.herokuapp.com/changestatus/${item._id}`, {
               payment: true,
               adminpayment: false,
               lastupdate: last,
@@ -55,7 +55,7 @@ const Home = () => {
             });
         } else {
           axios
-            .put(`http://pgrdemo.herokuapp.com/changestatus/${item._id}`, {
+            .put(`https://pgrdemo.herokuapp.com/changestatus/${item._id}`, {
               payment: false,
               adminpayment: false,
               lastupdate: last,
@@ -77,7 +77,7 @@ const Home = () => {
   };
   useEffect(() => {
     axios
-      .get("http://pgrdemo.herokuapp.com/userlisttwo")
+      .get("https://pgrdemo.herokuapp.com/userlisttwo")
       .then((res) => {
         changestatus(res.data.userlist);
       })

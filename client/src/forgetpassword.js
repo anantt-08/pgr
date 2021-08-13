@@ -42,7 +42,7 @@ export default class Forgetpassword extends Component {
     }
     const data = { email: this.state.email };
     axios
-      .post("http://pgrdemo.herokuapp.com/reset", data)
+      .post("https://pgrdemo.herokuapp.com/reset", data)
       .then((result) => {
         NotificationManager.success(
           "Password Reset link sent to your email .Please check the your email.Link Will be Valid For 30 min"

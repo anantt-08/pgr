@@ -34,7 +34,7 @@ export default class Userlist extends Component {
     const token = localStorage.getItem("profile");
 
     axios
-      .get("http://pgrdemo.herokuapp.com/userlist", {
+      .get("https://pgrdemo.herokuapp.com/userlist", {
         headers: {
           Authorization: token.token,
         },
@@ -50,7 +50,7 @@ export default class Userlist extends Component {
     const token = localStorage.getItem("profile");
     axios
       .put(
-        `http://pgrdemo.herokuapp.com/changestatus/${id}`,
+        `https://pgrdemo.herokuapp.com/changestatus/${id}`,
         { status: !status },
         {
           headers: {

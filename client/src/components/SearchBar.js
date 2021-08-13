@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import "./Style/SearchBar.css";
 import Grid from "@material-ui/core/Grid";
 //default base url
-axios.defaults.baseURL = "http://pgrdemo.herokuapp.com";
+axios.defaults.baseURL = "https://pgrdemo.herokuapp.com";
 
 function Search({ name, setName, whole, setwhole }) {
   const history = useHistory();
